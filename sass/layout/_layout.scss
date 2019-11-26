@@ -1,0 +1,279 @@
+.container {
+  max-width: 120rem;
+  min-height: 50rem;
+  margin: 6rem auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--border-1px-gray);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  //overflow: hidden;
+  font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-smaller) {
+    flex-wrap: wrap;
+    height: 11rem;
+    align-content: space-around;
+    //justify-content: space-around;
+  }
+}
+
+.content {
+  display: flex;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
+}
+
+.hotel-view {
+ background-color: var(--color-grey-light-1);
+ flex: 1;
+}
+
+.overview {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: var(--border-1px-gray);
+  align-items: center;
+
+  &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-smaller) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
+
+  }
+
+  &__stars__icon,
+  &__location__icon {
+    width: var(--icon-size-width);
+    height: var(--icon-size-height);
+    fill: var(--color-primary);
+  }
+
+  &__stars {
+    margin-right: auto;
+    display: flex;
+  }
+
+  &__location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-smaller) {
+      margin-left: 1rem;
+    }
+
+    &__icon {
+      margin-right: .5rem;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: var(--color-grey-light-1);
+    align-self: stretch;
+    padding: 0 2.25rem;
+
+    @media only screen and (max-width: $bp-smaller) {
+      padding: 0 1.5rem;
+      margin-left: 1rem;
+    }
+
+    &__average {
+      font-size: 2.25rem;
+      font-weight: 300;
+      margin-bottom: -3px;
+
+      @media only screen and (max-width: $bp-smaller) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &__count {
+      font-size: .8rem;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-smaller) {
+        font-size: .5rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--border-1px-gray);
+  font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+
+  &__description {
+    flex: 0 0 60%;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-boxes);
+    padding: 3rem;
+    margin-right: 4rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 3rem;
+    }
+
+    &__recommend {
+      font-size: 1.3rem;
+      color: var(--color-grey-dark-3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__count {
+      }
+
+      &__friends {
+        display: flex;
+
+        &__photo {
+          @include user-photo;
+
+          &:not(:first-child) {
+            margin-left: -2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__user-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    &__review {
+      background-color: var(--color-grey-light-1);
+      box-shadow: var(--shadow-boxes);
+      padding: 3rem;
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+
+      @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        width: 100%;
+      }
+
+      &__text {
+        margin-bottom: 2rem;
+        z-index: 10;
+        position: relative;
+      }
+
+      &__user {
+        display: flex;
+        align-items: center;
+
+        &__photo {
+          @include user-photo;
+          margin-right: 1.5rem;
+        }
+
+        &__box {
+
+          &__username {
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: .4rem;
+
+          }
+
+          &__date {
+            font-size: 1rem;
+            color: var(--color-grey-dark-3);
+          }
+        }
+
+        &__rating {
+          margin-left: auto;
+          color: var(--color-primary);
+          font-size: 2.2rem;
+          font-weight: 300;
+        }
+      }
+
+      &::before {
+        content: '\201C';
+        position: absolute;
+        top: -3.2rem;
+        left: -.75rem;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        line-height: 1;
+        font-family: sans-serif;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+  background-color: white;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
+  &__book-now {
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+}

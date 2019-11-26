@@ -1,0 +1,7 @@
+@mixin user-photo {
+  box-sizing: content-box;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: 3px solid var(--color-grey-light-1);
+}

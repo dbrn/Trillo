@@ -1,0 +1,48 @@
+.list {
+  border-top: var(--border-1px-gray);
+  border-bottom: var(--border-1px-gray);
+  margin: 3rem 0;
+  list-style: none;
+  padding: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  @media only screen and (max-width: $bp-smaller) {
+    padding: 1rem;
+    margin: 1rem, .5rem;
+    font-size: 1.1rem;
+
+  }
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: .7rem;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      margin-right: .7rem;
+
+      background-image: url("../img/chevron-thin-right.svg");
+      background-size: cover;
+
+      //BACKGROUND MASK (newer browsers)
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url("../img/chevron-thin-right.svg");
+        -webkit-mask-size: cover;
+        mask-image: url("../img/chevron-thin-right.svg");
+        mask-size: cover;
+        background-image: none;
+      }
+
+    }
+  }
+}
